@@ -157,21 +157,21 @@ export class ShareButtonsService {
    * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
    */
   getMobileOS() {
-    // const userAgent = navigator.userAgent || navigator.vendor || (window || global).opera;
+     const userAgent = navigator.userAgent || navigator.vendor || (window || global).opera;
 
     // Windows Phone must come first because its UA also contains "Android"
-    // if (/windows phone/i.test(userAgent)) {
-    //   return 'WindowsPhone';
-    // }
+     if (/windows phone/i.test(userAgent)) {
+       return 'WindowsPhone';
+     }
 
-    // if (/android/i.test(userAgent)) {
-    //   return 'Android';
-    // }
+     if (/android/i.test(userAgent)) {
+       return 'Android';
+     }
 
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-    // if (/iPad|iPhone|iPod/.test(userAgent) && !(window || global).MSStream) {
-    //   return 'iOS';
-    // }
+     // iOS detection from: http://stackoverflow.com/a/9039885/177710
+     if (/iPad|iPhone|iPod/.test(userAgent) && !(window || global).MSStream) {
+       return 'iOS';
+     }
 
     return undefined;
   }
